@@ -96,3 +96,4 @@ set ignorecase
 set incsearch
 let &t_ut=''
 set mouse=a
+
