@@ -58,8 +58,8 @@ command! CloseAll execute ":w|%bd!|x"
 
 map <F2> :CloseAll<CR>
 
-autocmd FileType python nnoremap <buffer> <C-r> :call PY_runner()<CR>
-autocmd FileType java  nnoremap <buffer> <C-r> :call JAVA_runner()<CR>
+autocmd FileType python nnoremap <buffer> r :call PY_runner()<CR>
+autocmd FileType java  nnoremap <buffer> r :call JAVA_runner()<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
