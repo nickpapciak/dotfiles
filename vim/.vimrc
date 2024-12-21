@@ -4,6 +4,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+set shell=/bin/bash
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-fugitive'
@@ -32,8 +34,9 @@ function! Reload_window_runner()
     " see if you could maybe only clear the terminal
     execute "w|%bd!|e#|NERDTree"
     " brings the cursor back to the main window
-    normal!  
-endfunction 
+    normal! 
+
+endfunction
 
 function! PY_runner()
     call Reload_window_runner()
@@ -42,24 +45,26 @@ function! PY_runner()
     call feedkeys(py_current_file_runner)
     " brings the cursor back to the window of the file and sets a nice window
     " size
-    call feedkeys(":resize 30\<CR>")
+    call feedkeys("
+                    :resize 30\<CR>")
 endfunction
 
-function! JAVA_runner() 
+function! JAVA_runner()
     call Reload_window_runner()
     let java_current_file_path_runner = expand("%:r")
     let java_current_file_runner = ":w\<CR>:bel term\<CR>javac " . java_current_file_path_runner . ".java && java " . java_current_file_path_runner . "\<CR>"
     call feedkeys(java_current_file_runner)
     " brings the cursor back to the window of the file
-    call feedkeys(":resize 30\<CR>")
+    call feedkeys("
+                    :resize 30\<CR>")
 endfunction
 
 command! CloseAll execute ":w|%bd!|x"
 
 map <F2> :CloseAll<CR>
 
-autocmd FileType python nnoremap <buffer> r :call PY_runner()<CR>
-autocmd FileType java  nnoremap <buffer> r :call JAVA_runner()<CR>
+autocmd FileType python nnoremap <buffer>  :call PY_runner()<CR>
+autocmd FileType java  nnoremap <buffer>  :call JAVA_runner()<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -96,4 +101,3 @@ set ignorecase
 set incsearch
 let &t_ut=''
 set mouse=a
-

@@ -1,0 +1,49 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "Sandstorm Dark",
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2"
+  },
+  "background.appearance": "transparent",
+  "ui_font_size": 16,
+
+  // font which changes to curly for comments
+  "ui_font_family": "Monaspace Neon Var",
+  "buffer_font_family": "Monaspace Argon",
+  "buffer_font_size": 16,
+  "buffer_font_weight": 200,
+
+  // enables ligatures and texture healing
+  "buffer_font_features": {
+    "calt": true,
+    "liga": true
+  },
+
+  // nice looking comments when using victor mono
+  "experimental.theme_overrides": {
+    "syntax": {
+      "comment": {
+        "font_weight": 400,
+        "font_style": "italic"
+      }
+    },
+    "players": [
+      {
+        "cursor": "#566ddaff",
+        "background": "#566ddaff",
+        "selection": "#566dda3d"
+      }
+    ]
+  }
+}

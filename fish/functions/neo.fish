@@ -1,4 +1,0 @@
-function neo
-    neofetch
-end
-
